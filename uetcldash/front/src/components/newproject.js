@@ -1,643 +1,250 @@
-import "date-fns";
-import React from "react";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import DateFnsUtils from "@date-io/date-fns";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import { Formik } from "formik";
+import { Form, Datepicker, SubmitBtn, Textarea } from "react-formik-ui";
+
+import React, { Component } from "react";
 import Box from "@material-ui/core/Box";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from "@material-ui/pickers";
 
-import { Formik, Form } from "formik";
-import * as yup from "yup";
-
-let NewPro = yup.object().shape({
-    project: yup.string().required("This field is required."),
-});
-
-const useStyles = makeStyles((theme) => ({
-    "@global": {
-        body: {
-            backgroundColor: theme.palette.common.white,
-        },
-    },
-    paper: {
-        marginTop: theme.spacing(8),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-    },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-        width: "100%", // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-}));
-
-export const App = () => {
-    const classes = useStyles();
-
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
-
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
-
-    return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Typography component="h1" variant="h5">
-                    Project Contracts Form
-                </Typography>
-                <Formik
-                    initialValues={{
-                        project: "",
-                        rapstart: "",
-                        rapend: "",
-                        dpdstart: "",
-                        dpdend: "",
-                        resettlestart: "",
-                        resettleend: "",
-                        supervisionstart: "",
-                        supervisionend: "",
-                        epcstart: "",
-                        epcend: "",
-                        performstart: "",
-                        performend: "",
-                        advancestart: "",
-                        advanceend: "",
-                        insurancestart: "",
-                        insuranceend: "",
-                        comment: "",
-                    }}
-                    validationSchema={NewPro}
-                    onSubmit={(values) => {
-                        console.log(values);
-                    }}
-                >
-                    {({ errors, handleChange, touched }) => (
-                        <Form className={classes.form}>
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <Grid item xs={12} sm={6}>
-                                        <TextField
-                                            error={
-                                                errors.firstName &&
-                                                touched.firstName
-                                            }
-                                            name="project"
-                                            variant="outlined"
-                                            fullWidth
-                                            onChange={handleChange}
-                                            id="project"
-                                            label="Project"
-                                           
+export default class App extends Component {
+    render() {
+        const mystyle = {
+            // color: "white",
+            // backgroundColor: "DodgerBlue",
+            padding: "100px",
+            fontFamily: "Arial",
+        };
+        const title = {
+            padding: "25px",
+        };
+        return (
+            <Formik
+                initialValues={{
+                    dateExample4: "",
+                }}
+                onSubmit={(data) => alert(JSON.stringify(data))}
+            >
+                <Form mode="themed">
+                    <div style={mystyle}>
+                        <div>
+                            <div>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>RAP Consultant</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="rapstart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
                                         />
-                                    </Grid>
-                                <Grid container spacing={2}>
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        RAP
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="rapstart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="rapend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        PDP Houses Consultant
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="dpdstart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="pdpend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="rapend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>PDP Houses Consultant</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="pdpstart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        Resettlement Houses
-                                                        Contractor
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="resettlestart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="resettleend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="pdpend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>Resettlement Houses Consultant</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="resettlestart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        Supervision Consultant
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="supervisionstart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="supervisionend"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="resettleend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>Supervision Consultant</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="supervisionstart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        EPC
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="epcstart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="epcend"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="supervisionend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>EPC</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="epcstart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        Performance Guarantee
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="performstart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="performend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="epcend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>Performance Guarantee</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="performstart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        Advance Payment
-                                                        Guarantee
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="advancestart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="advanceend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="performend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>Advance Payment Guarantee</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="advancestart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    <Grid container>
-                                        <Box
-                                            boxShadow={5}
-                                            bgcolor="background.paper"
-                                            style={{ borderRadius: 10 }}
-                                        >
-                                            <Card
-                                                className={classes.root}
-                                                variant="outlined"
-                                            >
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="h2"
-                                                    >
-                                                        Insurance
-                                                    </Typography>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="insurancestart"
-                                                            label="Start date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                    <Grid
-                                                        container
-                                                        justify="space-around"
-                                                    >
-                                                        <KeyboardDatePicker
-                                                            disableToolbar
-                                                            variant="inline"
-                                                            format="MM/dd/yyyy"
-                                                            margin="normal"
-                                                            id="insuranceend"
-                                                            label="End date"
-                                                            value={selectedDate}
-                                                            onChange={
-                                                                handleDateChange
-                                                            }
-                                                            KeyboardButtonProps={{
-                                                                "aria-label":
-                                                                    "change date",
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </CardContent>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
+                                        <Datepicker
+                                            name="advanceend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+                                <Box
+                                    boxShadow={5}
+                                    bgcolor="background.paper"
+                                    m={1}
+                                    p={1}
+                                    style={{ padding: 10, borderRadius: 10 }}
+                                >
+                                    <div style={title}>
+                                        <h3>insurance</h3>
+                                    </div>
+                                    <div>
+                                        <Datepicker
+                                            name="insurestart"
+                                            label="Start date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
 
-                                    </Grid>
-                            </MuiPickersUtilsProvider>
-                        </Form>
-                    )}
-                </Formik>
-            </div>
-        </Container>
-    );
-};
-export default NewProject9;
+                                        <Datepicker
+                                            name="insureend"
+                                            label="End date"
+                                            placeholder="DD.MM.YYYYY"
+                                            dateFormat="dd.MM.yyyy"
+                                        />
+                                    </div>
+                                </Box>
+
+                                <Textarea
+                                    name="comment"
+                                    label="Write a comment"
+                                />
+                            </div>
+                        </div>
+                        <SubmitBtn />
+                    </div>
+                </Form>
+            </Formik>
+        );
+    }
+}
