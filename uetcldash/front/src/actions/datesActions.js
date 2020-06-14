@@ -3,7 +3,7 @@ import axios from "axios";
 import { GET_DATES } from "./types";
 
 //GET DATES
-export const getDate = (id) => (dispatch) => {
+export const getDates = (id) => (dispatch) => {
     axios
         .get("/api/leads")
         .then((res) => {

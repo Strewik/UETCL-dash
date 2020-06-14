@@ -9,12 +9,14 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <div>has something something something</div>
+                <div>
+                    {/* <Button onClick={() => alert("Button clicked")}>
+                        Create new project
+                    </Button> */}
+                </div>
             </Provider>
         );
     }
 }
 
 // ReactDOM.render (<App />, document.getElementById("app"));
-
-
-
