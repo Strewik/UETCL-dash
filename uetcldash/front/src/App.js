@@ -1,15 +1,19 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getDates } from "./actions/datesActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-export  class App extends Component {
+export class App extends Component {
     static propTypes = {
         dates: PropTypes.array.isRequired
+    };
+
+    componentDidMount() {
+        this.props.getDates();
     }
+
     render() {
         return (
             <Provider store={store}>
@@ -24,8 +28,8 @@ export  class App extends Component {
     }
 }
 
-const mapStateToProps = state =>({
-    dates: state.datesReducer.dates
-})
+const mapStateToProps = (state) => ({
+    dates: state.datesReducer.dates,
+});
 
-export default connect(App);
+export default connect(mapStateToProps, { getDates })(App);
