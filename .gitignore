@@ -104,3 +104,4 @@ vscode/
 
 .expo/*
 .expo-shared/*
+db.sqlite3
