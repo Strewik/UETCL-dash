@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from dates.models import Dates 
+from .models import Dates 
 
 #Date Serialiser
 class DatesSerializer(serializers.ModelSerializer):

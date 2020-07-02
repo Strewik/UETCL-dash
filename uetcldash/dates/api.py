@@ -1,4 +1,4 @@
-from dates.models import Dates 
+from .models import Dates 
 from rest_framework import viewsets, permissions
 from .serializers import DatesSerializer
 
