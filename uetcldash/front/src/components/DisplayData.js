@@ -1,6 +1,7 @@
 import React from "react";
+import "./style.css";
 
-class App extends React.Component {
+class DisplayData extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,16 +27,28 @@ class App extends React.Component {
     if (!isLoaded) return <div>Loading...</div>;
     return (
       <div className="App">
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              Start Date: {item.rapstart} | Enddate: {item.rapend}
-            </li>
-          ))}
-        </ul>
+        <h1>Porjects Running</h1>
+        <div className="books">
+          <div className="book">
+            <div className="details">
+              {items.map(item => (
+                <div key={item.id}>
+                  <h2>{item.consultant}</h2>
+                  <h4>{item.project}</h4>
+                  <div>
+                    <p>Start Date: {item.start}</p>
+                    <p>End date: {item.end}</p>
+                    <p>Time Left</p>
+                    <p>Comment:{item.comment} </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default DisplayData;

@@ -3,9 +3,11 @@ import Clock from "./components/Clock";
 import Counter from "./components/Counter";
 import NewProject from "./components/NewProject";
 import DisplayData from "./components/DisplayData";
-import Landing from "./components/Landing";
-import { Provider } from "react-redux";
-import store from "./store";
+import Project from "./components/Project";
+import ProjectLanding from "./components/ProjectLanding";
+// import Landing from "./components/Landing";
+// import { Provider } from "react-redux";
+// import store from "./store";
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,20 +28,23 @@ class App extends React.Component {
       }
     };
     return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <Switch>
-              <Route path="/" exact component={Landing} />
-              <Route path="/clock" component={Clock} />
-              <Route path="/newproject" component={NewProject} />
-              <Route path="/counter" component={Counter} />
-              <Route path="/display" component={DisplayData} />
-              <Route component={notfound} />
-            </Switch>
-          </div>
-        </Router>
-      </Provider>
+      // <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/" exact component={DisplayData} />
+            <Route path="/clock" component={Clock} />
+            <Route path="/newproject" component={NewProject} />
+            <Route path="/counter" component={Counter} />
+            <Route path="/project" component={Project} />
+            <Route path="/landing" component={ProjectLanding} />
+            {/* <Route path="/display" component={DisplayData} /> */}
+            {/* <Route path="/landing" component={ Landing} /> */}
+            <Route component={notfound} />
+          </Switch>
+        </div>
+      </Router>
+      // {/* </Provider> */}
     );
   }
 }

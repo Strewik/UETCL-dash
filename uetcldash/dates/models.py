@@ -19,3 +19,12 @@ class Dates(models.Model):
     insurestart = models.CharField(blank=True, max_length=50)
     insureend = models.CharField(blank=True, max_length=50)
     comment = models.CharField(blank=True, max_length=900)
+
+
+class Project(models.Model):
+    consultant = models.CharField(max_length=50)
+    project = models.CharField(max_length=50)
+    start = models.CharField(max_length=50)
+    end = models.CharField(max_length=50)
+    comment = models.CharField(blank=True, max_length=900)
+    
