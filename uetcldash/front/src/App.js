@@ -2,13 +2,13 @@ import React from "react";
 import Clock from "./components/Clock";
 import Counter from "./components/Counter";
 import NewProject from "./components/NewProject";
+import DisplayData from "./components/DisplayData";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
-
 
 class App extends React.Component {
   state = {
@@ -29,6 +29,7 @@ class App extends React.Component {
             <Route path="/" exact component={NewProject} />
             <Route path="/clock" component={Clock} />
             <Route path="/counter" component={Counter} />
+            <Route path="/display" component={DisplayData} />
             <Route component={notfound} />
           </Switch>
         </div>
@@ -38,4 +39,3 @@ class App extends React.Component {
 }
 
 export default App;
-
