@@ -3,9 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+
+import {createstore} from 'redux'
+import rootReducer from "./reducers/index"
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
-
+const store  = createstore(
+  rootReducer
+);
 ReactDOM.render(
   <React.StrictMode>
     <App />
