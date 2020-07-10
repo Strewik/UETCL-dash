@@ -32,7 +32,7 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/" exact component={DisplayData} />
+            <Route path="/" exact component={ProjectLanding} />
             <Route path="/clock" component={Clock} />
             <Route path="/newproject" component={NewProject} />
             <Route path="/counter" component={Counter} />

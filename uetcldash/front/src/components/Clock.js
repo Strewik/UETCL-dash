@@ -6,6 +6,7 @@ class Clock extends Component {
     super(props);
     this.state = {
       years:0,
+      months:0,
       days: 0,
       hours: 0,
       minutes: 0,
@@ -30,16 +31,18 @@ class Clock extends Component {
     const seconds = Math.floor((time/1000) % 60);
     const minutes = Math.floor((time/1000/60) % 60);
     const hours = Math.floor(time/(1000*60*60) % 24);
-    const days = Math.floor(time/(1000*60*60*24)%30);
+    const days = Math.floor(time/(1000*60*60*24)%31);
+    const months = Math.floor(time/(1000*60*60*24*31)%12);
     const years = Math.floor(time/(1000*60*60*24*31*12)%365);
 
-    this.setState({years, days, hours, minutes, seconds});
+    this.setState({years, months, days, hours, minutes, seconds});
   }
 
   render() {
     return (
       <div>
         <div className="Clock-years">{this.leading0(this.state.years)} years</div>
+        <div className="Clock-years">{this.leading0(this.state.months)} months</div>
         <div className="Clock-days">{this.leading0(this.state.days)} days</div>
         <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
         <div className="Clock-minutes">{this.leading0(this.state.minutes)} minutes</div>
