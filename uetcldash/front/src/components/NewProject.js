@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { Form, Datepicker, SubmitBtn, Textarea } from "react-formik-ui";
+import { Form, Datepicker, SubmitBtn, Textarea, Input } from "react-formik-ui";
 import axios from "axios";
 import * as Yup from "yup";
 import React, { Component } from "react";
@@ -7,6 +7,11 @@ import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
 
 const formSchema = Yup.object().shape({
+  project: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("You must specify the Project name"),
+
   rapstart: Yup.date(),
   rapend: Yup.date().min(
     Yup.ref("rapstart"),
@@ -50,6 +55,7 @@ const formSchema = Yup.object().shape({
 });
 
 const initialValues = {
+  project: "",
   rapstart: "",
   rapend: "",
   pdpstart: "",
@@ -125,6 +131,7 @@ export default class NewProject extends Component {
                     p={1}
                     style={{ padding: 10, borderRadius: 10 }}
                   >
+                    <Input name="project" label="Project name" required />
                     <div style={title}>
                       <h3>RAP Consultant</h3>
                     </div>
