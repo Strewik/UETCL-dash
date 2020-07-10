@@ -1,12 +1,11 @@
-import { Formik} from "formik";
+import { Formik } from "formik";
 import {
   Form,
   Input,
   Datepicker,
   Select,
   Textarea,
-  SubmitBtn,
-  // Button
+  SubmitBtn
 } from "react-formik-ui";
 import axios from "axios";
 import * as Yup from "yup";
@@ -17,7 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 const formSchema = Yup.object().shape({
   consultant: Yup.string().required("You must select a consultant"),
 
-  project: Yup.string()
+  projectname: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("You must specify the Project name"),
@@ -31,13 +30,13 @@ const formSchema = Yup.object().shape({
 
 const initialValues = {
   consultant: "",
-  project: "",
+  projectname: "",
   start: "",
   end: "",
   comment: ""
 };
 
-export default class Project extends Component {
+export default class Contract extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -57,12 +56,7 @@ export default class Project extends Component {
       marginBottom: "15px",
       marginTop: "10px"
     };
-    // const project = {
-    //   flex: "left"
-    // };
-    // const button = {
-    //   flex: "left"
-    // };
+
     return (
       <Formik
         initialValues={initialValues}
@@ -70,7 +64,7 @@ export default class Project extends Component {
         onSubmit={async (values, actions) => {
           await axios({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/project/",
+            url: "http://127.0.0.1:8000/api/contract/",
             data: values
           })
             .then(response => {
@@ -93,7 +87,7 @@ export default class Project extends Component {
               style={{ width: "99%", height: "620px" }}
             >
               <fieldset style={mystyle}>
-                <h2 style={title}>Project Form</h2>
+                <h2 style={title}>Contract Form</h2>
                 <Select
                   name="consultant"
                   placeholder="Select a consultant"
@@ -125,7 +119,7 @@ export default class Project extends Component {
                   required
                 />
 
-                <Input name="project" label="Project name" required />
+                <Input name="projectname" label="Project name" required />
 
                 <Datepicker
                   name="start"
@@ -156,7 +150,7 @@ export default class Project extends Component {
                       borderRadius: 10,
                       position: "relative",
                       marginBottom: "5px",
-                      backgroundColor:"lightBlue"
+                      backgroundColor: "lightBlue"
                     }}
                   />
                 </div>
@@ -168,3 +162,4 @@ export default class Project extends Component {
     );
   }
 }
+

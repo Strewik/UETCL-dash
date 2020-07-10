@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-class ProjectLanding extends React.Component {
+class ContractLand extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,13 +27,13 @@ class ProjectLanding extends React.Component {
     if (!isLoaded) return <div>Loading...</div>;
     return (
       <div className="App">
-        <h1>Projects Running</h1>
+        <h1>Contracts Running</h1>
         {items.map(item => (
           <div key={item.id}>
             <div className="projects">
               <div className="project">
+              <h3>Project: {item.project}</h3>
                 <h2>{item.consultant}</h2>
-                {/* <h3>Project: {item.project}</h3> */}
                 <div className="details">
                   <p>
                     <strong>Start Date:</strong> {item.start}
@@ -49,7 +49,7 @@ class ProjectLanding extends React.Component {
                   </p>
                 </div>
                 <div>
-                  <button>Delete</button> 
+                  <button>Delete</button>
                   <button>Update</button>
                 </div>
               </div>
@@ -61,4 +61,4 @@ class ProjectLanding extends React.Component {
   }
 }
 
-export default ProjectLanding;
+export default ContractLand;
