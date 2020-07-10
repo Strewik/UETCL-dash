@@ -33,11 +33,11 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route path="/" exact component={ProjectLanding} />
-            <Route path="/clock" component={Clock} />
             <Route path="/newproject" component={NewProject} />
-            <Route path="/counter" component={Counter} />
+            <Route path="/landing" component={DisplayData} />
             <Route path="/project" component={Project} />
-            <Route path="/landing" component={ProjectLanding} />
+            <Route path="/clock" component={Clock} />
+            <Route path="/counter" component={Counter} />
             {/* <Route path="/display" component={DisplayData} /> */}
             {/* <Route path="/landing" component={ Landing} /> */}
             <Route component={notfound} />
