@@ -3,7 +3,6 @@ import "./style.css";
 import Clock from "./Clock";
 import { Button } from "react-bootstrap";
 
-
 class DisplayData extends React.Component {
   constructor(props) {
     super(props);
@@ -28,19 +27,11 @@ class DisplayData extends React.Component {
   }
   render() {
     const { isLoaded, items } = this.state;
+    const { history } = this.props;
     if (!isLoaded) return <div>Loading...</div>;
 
-    const { history } = this.props;
     return (
       <div className="App">
-        {/* <TouchableOpacity
-              style={styles.TouchableOpacityStyle}
-              onPress={() => navigation.navigate("Advance Form")}
-            >
-              <Text style={styles.TouchableOpacityAdd}>+ Add</Text>
-            </TouchableOpacity> */}
-        {/* <button onClick={() => this.addEmptyItem()}>Add</button> */}
-
         <Button
           // variant="btn btn-success"
           onClick={() => history.push("/newproject")}
