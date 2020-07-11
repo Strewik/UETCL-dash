@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import React, { Component } from "react";
 import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
+import styles from './styles.module.css';
+
 
 const formSchema = Yup.object().shape({
   project: Yup.string()

@@ -1,12 +1,14 @@
 import React from "react";
 import "./style.css";
+import Clock from "./Clock";
 
 class DisplayData extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
-      isLoaded: false
+      isLoaded: false,
+      deadline: "",
     };
   }
   componentDidMount() {
@@ -43,7 +45,11 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.rapstart}</p>
                         <p>End date: {item.rapend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.rapend}
+                        />
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -56,7 +62,11 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.pdpstart}</p>
                         <p>End date: {item.pdpend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.pdpend}
+                        />
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -69,7 +79,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.resettlestart}</p>
                         <p>End date: {item.resettleend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.resettleend}
+                        /></p>
                       </div>
                     </div>
                   </div>
@@ -82,7 +95,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.supervisionstart}</p>
                         <p>End date: {item.supervisionend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.supervisionend}
+                        /></p>
                       </div>
                     </div>
                   </div>
@@ -95,7 +111,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.epcstart}</p>
                         <p>End date: {item.epcend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.epcend}
+                        /></p>
                       </div>
                     </div>
                   </div>
@@ -108,7 +127,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.performstart}</p>
                         <p>End date: {item.performend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.performend}
+                        /></p>
                       </div>
                     </div>
                   </div>
@@ -121,7 +143,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.advancestart}</p>
                         <p>End date: {item.advanceend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.advanceend}
+                        /></p>
                       </div>
                     </div>
                   </div>
@@ -134,7 +159,10 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.insurestart}</p>
                         <p>End date: {item.insureend}</p>
-                        <p>Time Left</p>
+                        <p>Time Left:
+                        <Clock 
+                          deadline={item.insureend}
+                        /></p>
                       </div>
                     </div>
                   </div>

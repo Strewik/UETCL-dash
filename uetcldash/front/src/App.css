@@ -39,8 +39,8 @@
 
 .App {
   text-align: center;
-  font-size: 35px;
-  margin-top: 20%;
+  font-size: 16px;
+  margin-top: 5%;
 }
 
 .App-title {
@@ -55,4 +55,11 @@
 .Deadline-input {
   font-size: 25px;
   margin: 5px;
+}
+
+.mainHeader{
+  height: 20%;
+  text-align: left;
+  /* background-image: url(./images/car.jpg); */
+  background-color: blue;
 }
