@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import Clock from "./Clock";
+import { Button } from "react-bootstrap";
+
 
 class DisplayData extends React.Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class DisplayData extends React.Component {
     this.state = {
       items: [],
       isLoaded: false,
-      deadline: "",
+      deadline: ""
     };
   }
   componentDidMount() {
@@ -27,8 +29,24 @@ class DisplayData extends React.Component {
   render() {
     const { isLoaded, items } = this.state;
     if (!isLoaded) return <div>Loading...</div>;
+
+    const { history } = this.props;
     return (
       <div className="App">
+        {/* <TouchableOpacity
+              style={styles.TouchableOpacityStyle}
+              onPress={() => navigation.navigate("Advance Form")}
+            >
+              <Text style={styles.TouchableOpacityAdd}>+ Add</Text>
+            </TouchableOpacity> */}
+        {/* <button onClick={() => this.addEmptyItem()}>Add</button> */}
+
+        <Button
+          // variant="btn btn-success"
+          onClick={() => history.push("/newproject")}
+        >
+          Add Project
+        </Button>
         <h1>Projects Running</h1>
 
         {items.map(item => (
@@ -45,14 +63,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.rapstart}</p>
                         <p>End date: {item.rapend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.rapend}
-                        />
-                        </p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.rapend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -62,14 +81,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.pdpstart}</p>
                         <p>End date: {item.pdpend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.pdpend}
-                        />
-                        </p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.pdpend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -79,13 +99,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.resettlestart}</p>
                         <p>End date: {item.resettleend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.resettleend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.resettleend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -95,13 +117,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.supervisionstart}</p>
                         <p>End date: {item.supervisionend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.supervisionend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.supervisionend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -111,13 +135,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.epcstart}</p>
                         <p>End date: {item.epcend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.epcend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.epcend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -127,13 +153,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.performstart}</p>
                         <p>End date: {item.performend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.performend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.performend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -143,13 +171,15 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.advancestart}</p>
                         <p>End date: {item.advanceend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.advanceend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.advanceend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
 
                 <div className="project">
@@ -159,15 +189,18 @@ class DisplayData extends React.Component {
                       <div>
                         <p>Start Date: {item.insurestart}</p>
                         <p>End date: {item.insureend}</p>
-                        <p>Time Left:
-                        <Clock 
-                          deadline={item.insureend}
-                        /></p>
+                        <div>
+                          Time Left:
+                          <Clock deadline={item.insureend} />
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button>Delete</button>
+                  <button>Update</button>
                 </div>
               </div>
+
               <div>
                 <p>
                   <strong>Comment:</strong>

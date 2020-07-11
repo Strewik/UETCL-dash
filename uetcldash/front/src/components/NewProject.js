@@ -5,8 +5,7 @@ import * as Yup from "yup";
 import React, { Component } from "react";
 import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
-import styles from './styles.module.css';
-
+// import styles from './styles.module.css';
 
 const formSchema = Yup.object().shape({
   project: Yup.string()
@@ -84,9 +83,8 @@ export default class NewProject extends Component {
   }
 
   render() {
+    const { history } = this.props;
     const mystyle = {
-      // color: "white",
-      // backgroundColor: "DodgerBlue",
       padding: "100px",
       fontFamily: "Arial"
     };
@@ -107,6 +105,8 @@ export default class NewProject extends Component {
               actions.setSubmitting(true);
               actions.resetForm();
               console.log(values);
+              // redirect to the homepage
+              history.push("/");
             })
             .catch(error => {
               actions.setSubmitting(true);

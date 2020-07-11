@@ -11,50 +11,50 @@ import styles from "./components/styles.module.css";
 // import Landing from "./components/Landing";
 // import { Provider } from "react-redux";
 // import store from "./store";
+// import history from './components/history';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
 } from "react-router-dom";
 
 class App extends React.Component {
-    state = {
-        redirect: true,
-    };
+  state = {
+    redirect: true
+  };
 
-    render() {
-        const notfound = () => {
-            const { redirect } = this.state;
-            if (redirect) {
-                return <Redirect to="/newproject" />;
-            }
-        };
-        return (
-            // <Provider store={store}>
-            <Router>
-                <div className="App">
-                    <div>
-                        <div className={styles.mainHeader}>
-                            <img src={uetcllogo2} alt={"logo"} />
-                        </div>
-                    </div>
-                    <Switch>
-                        <Route path="/" exact component={DisplayData} />
-                        <Route path="/newproject" component={NewProject} />
-                        <Route path="/landing" component={DisplayData} />
-                        <Route path="/project" component={Project} />
-                        <Route path="/clock" component={Clock} />
-                        <Route path="/counter" component={Counter} />
-                        {/* <Route path="/display" component={DisplayData} /> */}
-                        {/* <Route path="/landing" component={ Landing} /> */}
-                        <Route component={notfound} />
-                    </Switch>
-                </div>
-            </Router>
-            // {/* </Provider> */}
-        );
-    }
+  render() {
+    const notfound = () => {
+      const { redirect } = this.state;
+      if (redirect) {
+        return <Redirect to="/newproject" />;
+      }
+    };
+    return (
+      // <Provider store={store}>
+      <Router>
+        <div className="App">
+          <div>
+            <div className={styles.mainHeader}>
+              <img src={uetcllogo2} alt={"logo"} />
+            </div>
+          </div>
+          <Switch>
+            <Route path="/" exact component={DisplayData} />
+            <Route path="/newproject" component={NewProject} />
+            <Route path="/clock" component={Clock} />
+            <Route path="/counter" component={Counter} />
+            <Route path="/project" component={Project} />
+            <Route path="/landing" component={ProjectLanding} />
+            {/* <Route path="/landing" component={ Landing} /> */}
+            <Route component={notfound} />
+          </Switch>
+        </div>
+      </Router>
+      // {/* </Provider> */}
+    );
+  }
 }
 
 export default App;
