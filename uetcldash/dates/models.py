@@ -5,7 +5,7 @@ class Dates(models.Model):
     rapstart = models.CharField(blank=True, max_length=50)
     rapend = models.CharField(blank=True, max_length=50)
     pdpstart = models.CharField(blank=True, max_length=50)
-    pdpstart = models.CharField(blank=True, max_length=50)
+    pdpend = models.CharField(blank=True, max_length=50)
     resettlestart = models.CharField(blank=True, max_length=50)
     resettleend = models.CharField(blank=True, max_length=50)
     supervisionstart = models.CharField(blank=True, max_length=50)
