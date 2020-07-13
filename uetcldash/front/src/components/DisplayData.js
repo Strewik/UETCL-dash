@@ -105,8 +105,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -123,8 +121,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -141,8 +137,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -159,8 +153,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -177,8 +169,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -195,8 +185,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -213,8 +201,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -231,8 +217,6 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* <button>Delete</button>
-                  <button>Update</button> */}
                 </div>
               </div>
 
