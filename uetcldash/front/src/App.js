@@ -5,7 +5,7 @@ import NewProject from "./components/NewProject";
 import DisplayData from "./components/DisplayData";
 import Project from "./components/Project";
 import ProjectLanding from "./components/ProjectLanding";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import uetcllogo2 from "./images/uetcllogo2.jpg";
 import styles from "./components/styles.module.css";
 // import Landing from "./components/Landing";

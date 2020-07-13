@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import Clock from "./Clock";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 class DisplayData extends React.Component {
   constructor(props) {
@@ -25,6 +26,49 @@ class DisplayData extends React.Component {
         console.log(err);
       });
   }
+
+  // updatData() {
+  //   const data = {
+  //     userId: "123",
+  //     id: "23"
+  //   };
+  //   axios
+  //     .put("http://127.0.0.1:8000/api/dates/1", data)
+  //     .then(data => {
+  //       console.log(data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
+
+  // deleteProject(id) {
+  //   // <-- declare id parameter
+  //   axios
+  //     .delete(`http://127.0.0.1:8000/api/dates/${id}`) // <-- remove ;
+  //     .then(res => {
+  //       const items = res.data;
+  //       this.setState({ items });
+  //     });
+  // }
+
+  deleteProject(id) {
+    // Issue DELETE request
+    axios
+      .delete(`http://127.0.0.1:8000/api/dates/${id}`)
+      .then(() => {
+        // Issue GET request after item deleted to get updated list
+        // that excludes item of id
+        return axios.get(`http://127.0.0.1:8000/api/dates/`);
+      })
+      .then(res => {
+        // Update items in state as per-usual
+        const items = res.data;
+        this.setState({ items });
+        console.log(items);
+      });
+  }
+
   render() {
     const { isLoaded, items } = this.state;
     const { history } = this.props;
@@ -61,8 +105,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -79,8 +123,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -97,8 +141,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -115,8 +159,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -133,8 +177,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -151,8 +195,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -169,8 +213,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
 
                 <div className="project">
@@ -187,8 +231,8 @@ class DisplayData extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <button>Delete</button>
-                  <button>Update</button>
+                  {/* <button>Delete</button>
+                  <button>Update</button> */}
                 </div>
               </div>
 
@@ -199,6 +243,8 @@ class DisplayData extends React.Component {
                 </p>
               </div>
             </div>
+            <button onClick={() => this.deleteProject(item.id)}>Delete</button>
+            <button>Update</button>
           </div>
         ))}
       </div>
