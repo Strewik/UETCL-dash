@@ -3,6 +3,8 @@ import "./style.css";
 import Clock from "./Clock";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import delete3 from "../images/delete3.png";
+import edit7 from "../images/edit7.png";
 
 class DisplayData extends React.Component {
   constructor(props) {
@@ -42,20 +44,10 @@ class DisplayData extends React.Component {
   //     });
   // }
 
-  // deleteProject(id) {
-  //   // <-- declare id parameter
-  //   axios
-  //     .delete(`http://127.0.0.1:8000/api/dates/${id}`) // <-- remove ;
-  //     .then(res => {
-  //       const items = res.data;
-  //       this.setState({ items });
-  //     });
-  // }
-
   deleteProject(id) {
     // Issue DELETE request
     axios
-      .delete(`http://127.0.0.1:8000/api/dates/${id}`)
+      .delete(`http://127.0.0.1:8000/api/dates/${id}/`)
       .then(() => {
         // Issue GET request after item deleted to get updated list
         // that excludes item of id
@@ -89,6 +81,10 @@ class DisplayData extends React.Component {
             <div className="overallcontainer">
               <div id="project">
                 <h2>Project Name: {item.project}</h2>
+                <div className="butt">
+                <button onClick={() => this.deleteProject(item.id)}><img src={delete3} alt={"delete"} /></button>
+            <button><img src={edit7} alt={"edit"} /></button>
+            </div>
               </div>
               <div className="projects">
                 <div className="project">
@@ -227,8 +223,6 @@ class DisplayData extends React.Component {
                 </p>
               </div>
             </div>
-            <button onClick={() => this.deleteProject(item.id)}>Delete</button>
-            <button>Update</button>
           </div>
         ))}
       </div>
