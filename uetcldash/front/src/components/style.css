@@ -50,7 +50,9 @@
   .details {
     text-align: left;
   }
-
-  
-
+.butt{
+  justify-content: right;
+  justify-items: right;
+  text-align: right;
+}
  

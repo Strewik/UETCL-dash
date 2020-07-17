@@ -3,6 +3,8 @@ import "./style.css";
 import Clock from "./Clock";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import delete3 from "../images/delete3.png";
+import edit7 from "../images/edit7.png";
 
 class DisplayData extends React.Component {
   constructor(props) {
@@ -58,6 +60,16 @@ class DisplayData extends React.Component {
             <div className="overallcontainer">
               <div id="project">
                 <h2>Project Name: {item.project}</h2>
+                <div className="butt">
+                  <button onClick={() => this.deleteProject(item.id)}>
+                    <img src={delete3} alt={"delete"} />
+                  </button>
+                  <button
+                    onClick={() => history.push(`/editproject/${item.id}/`)}
+                  >
+                    <img src={edit7} alt={"edit"} />
+                  </button>
+                </div>
               </div>
               <div className="projects">
                 <div className="project">
@@ -196,10 +208,10 @@ class DisplayData extends React.Component {
                 </p>
               </div>
             </div>
-            <Button onClick={() => this.deleteProject(item.id)}>Delete</Button>
+            {/* <Button onClick={() => this.deleteProject(item.id)}>Delete</Button>
             <Button onClick={() => history.push(`/editproject/${item.id}/`)}>
               Update
-            </Button>
+            </Button> */}
           </div>
         ))}
       </div>
