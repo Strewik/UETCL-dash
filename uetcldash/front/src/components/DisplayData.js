@@ -14,7 +14,7 @@ class DisplayData extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("http://127.0.0.1:8000/api/dates/")
+    fetch("/api/dates/")
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -27,35 +27,10 @@ class DisplayData extends React.Component {
       });
   }
 
-  // updatData() {
-  //   const data = {
-  //     userId: "123",
-  //     id: "23"
-  //   };
-  //   axios
-  //     .put("http://127.0.0.1:8000/api/dates/1", data)
-  //     .then(data => {
-  //       console.log(data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
-
-  // deleteProject(id) {
-  //   // <-- declare id parameter
-  //   axios
-  //     .delete(`http://127.0.0.1:8000/api/dates/${id}`) // <-- remove ;
-  //     .then(res => {
-  //       const items = res.data;
-  //       this.setState({ items });
-  //     });
-  // }
-
   deleteProject(id) {
     // Issue DELETE request
     axios
-      .delete(`http://127.0.0.1:8000/api/dates/${id}`)
+      .delete(`http://127.0.0.1:8000/api/dates/${id}/`)
       .then(() => {
         // Issue GET request after item deleted to get updated list
         // that excludes item of id
@@ -76,14 +51,8 @@ class DisplayData extends React.Component {
 
     return (
       <div className="App">
-        <Button
-          // variant="btn btn-success"
-          onClick={() => history.push("/newproject")}
-        >
-          Add Project
-        </Button>
+        <Button onClick={() => history.push("/newproject")}>Add Project</Button>
         <h1>Projects Running</h1>
-
         {items.map(item => (
           <div key={item.id}>
             <div className="overallcontainer">
@@ -227,8 +196,10 @@ class DisplayData extends React.Component {
                 </p>
               </div>
             </div>
-            <button onClick={() => this.deleteProject(item.id)}>Delete</button>
-            <button>Update</button>
+            <Button onClick={() => this.deleteProject(item.id)}>Delete</Button>
+            <Button onClick={() => history.push(`/editproject/${item.id}/`)}>
+              Update
+            </Button>
           </div>
         ))}
       </div>
