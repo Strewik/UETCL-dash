@@ -5,8 +5,10 @@ import NewProject from "./components/NewProject";
 import DisplayData from "./components/DisplayData";
 import Project from "./components/Project";
 import ProjectLanding from "./components/ProjectLanding";
-// import Header from "./components/Header";
+import EditProject from "./components/EditProject";
+
 import uetcllogo2 from "./images/uetcllogo2.jpg";
+
 import styles from "./components/styles.module.css";
 // import Landing from "./components/Landing";
 // import { Provider } from "react-redux";
@@ -34,14 +36,15 @@ class App extends React.Component {
     return (
       // <Provider store={store}>
       <Router>
-        <div className="App">
+        <div className="MainApp">
           <div>
             <div className={styles.mainHeader}>
               <img src={uetcllogo2} alt={"logo"} />
             </div>
           </div>
           <Switch>
-            <Route path="/" exact component={DisplayData} />
+            <Route path="/" exact component={EditProject} />
+            {/* <Route path="/" exact component={DisplayData} /> */}
             <Route path="/newproject" component={NewProject} />
             <Route path="/clock" component={Clock} />
             <Route path="/counter" component={Counter} />

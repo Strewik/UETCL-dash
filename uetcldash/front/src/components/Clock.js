@@ -42,9 +42,9 @@ class Clock extends Component {
     let timeStatus = {
      color: 'blue',
     };
-    const danger = {color: 'red'};
-    const warning = {color: 'orange'};
-    const running = {color: 'green'};
+    // const danger = {color: 'red'};
+    // const warning = {color: 'orange'};
+    // const running = {color: 'green'};
 
     // const  timeStatus = (t) =>{
     //   if(t < 1){
