@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import { Form, Datepicker, SubmitBtn, Textarea, Input } from "react-formik-ui";
 import axios from "axios";
 import * as Yup from "yup";
-import React, { Component } from "react";
+import React, { Component, useState, usEffect } from "react";
 import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
 // import styles from './styles.module.css';
@@ -98,6 +98,12 @@ export default class EditProject extends Component {
             });
     }
 
+//      const [initialValues, setInitialValues] = useState();
+
+//   useEffect(() => {
+//     getInitialValues().then(res => setInitialValues(res);
+//     }, []);
+
     render() {
         const { items } = this.state;
         const { history } = this.props;
@@ -142,8 +148,8 @@ export default class EditProject extends Component {
                     <Form mode="themed">
                         <div style={mystyle}>
                             <div>
-                            {items.map((item) => (
-                    <div key={item.id}>
+                                {/* {items.map((item) => (
+                    <div key={item.id}> */}
                                 <div>
                                     <Box
                                         boxShadow={5}
@@ -398,8 +404,8 @@ export default class EditProject extends Component {
                                         label="Write a comment"
                                     />
                                 </div>
-                                </div>
-                            ))}
+                                {/* </div>
+                            ))} */}
                             </div>
                             <SubmitBtn />
                         </div>

@@ -43,8 +43,8 @@ class App extends React.Component {
             </div>
           </div>
           <Switch>
-            <Route path="/" exact component={EditProject} />
-            {/* <Route path="/" exact component={DisplayData} /> */}
+            {/* <Route path="/" exact component={EditProject} /> */}
+            <Route path="/" exact component={DisplayData} />
             <Route path="/newproject" component={NewProject} />
             <Route path="/clock" component={Clock} />
             <Route path="/counter" component={Counter} />

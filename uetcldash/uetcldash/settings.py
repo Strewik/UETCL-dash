@@ -84,7 +84,9 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
+    }
 
 
 ROOT_URLCONF = 'uetcldash.urls'

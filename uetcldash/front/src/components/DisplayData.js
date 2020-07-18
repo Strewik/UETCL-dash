@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import delete3 from "../images/delete3.png";
 import edit7 from "../images/edit7.png";
+import dateFormat from 'dateformat';
 
 class DisplayData extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class DisplayData extends React.Component {
             items: [],
             isLoaded: false,
             deadline: "",
+            
         };
     }
     componentDidMount() {
@@ -62,6 +64,7 @@ class DisplayData extends React.Component {
         const { history } = this.props;
         if (!isLoaded) return <div>Loading...</div>;
 
+
         return (
             <div className="App">
                 <Button
@@ -99,9 +102,11 @@ class DisplayData extends React.Component {
                                             <h4>RAP Consultant</h4>
                                             <div>
                                                 <p>
-                                                    Start Date: {item.rapstart}
+                                                    Start Date: {" "}
+                                                    {dateFormat(item.rapstart, 'fullDate')}
                                                 </p>
-                                                <p>End date: {item.rapend}</p>
+                                                <p>End date: 
+                                                 {dateFormat(item.rapend, 'fullDate')}</p>
                                                 <div>
                                                     Time Left:
                                                     <Clock
@@ -119,9 +124,12 @@ class DisplayData extends React.Component {
                                             <h4>PDP Houses Consultant</h4>
                                             <div>
                                                 <p>
-                                                    Start Date: {item.pdpstart}
+                                                    Start Date: 
+                                                    {dateFormat(item.pdpstart, 'fullDate')}
                                                 </p>
-                                                <p>End date: {item.pdpend}</p>
+                                                <p>End date: 
+                                                {dateFormat(item.pdpend, 'fullDate')}
+                                                </p>
                                                 <div>
                                                     Time Left:
                                                     <Clock
@@ -142,10 +150,10 @@ class DisplayData extends React.Component {
                                             <div>
                                                 <p>
                                                     Start Date:{" "}
-                                                    {item.resettlestart}
+                                                    {dateFormat(item.resettlestart, 'fullDate')}
                                                 </p>
                                                 <p>
-                                                    End date: {item.resettleend}
+                                                    End date: {dateFormat(item.resettleend, 'fullDate')}
                                                 </p>
                                                 <div>
                                                     Time Left:
@@ -167,11 +175,11 @@ class DisplayData extends React.Component {
                                             <div>
                                                 <p>
                                                     Start Date:{" "}
-                                                    {item.supervisionstart}
+                                                    {dateFormat(item.supervisionstart, 'fullDate')}
                                                 </p>
                                                 <p>
                                                     End date:{" "}
-                                                    {item.supervisionend}
+                                                    {dateFormat(item.supervisionend, 'fullDate')}
                                                 </p>
                                                 <div>
                                                     Time Left:
@@ -191,10 +199,13 @@ class DisplayData extends React.Component {
                                         <div id="contracts">
                                             <h4>EPC</h4>
                                             <div>
-                                                <p>
-                                                    Start Date: {item.epcstart}
+                                                <p>Start Date:{" "}
+                                                    {dateFormat(item.epcstart, 'fullDate')}
                                                 </p>
-                                                <p>End date: {item.epcend}</p>
+                                                <p>
+                                                End date: 
+                                                {dateFormat(item.epcend, 'fullDate')}
+                                                </p>
                                                 <div>
                                                     Time Left:
                                                     <Clock
@@ -213,10 +224,11 @@ class DisplayData extends React.Component {
                                             <div>
                                                 <p>
                                                     Start Date:{" "}
-                                                    {item.performstart}
+                                                    {dateFormat(item.performstart, 'fullDate')}
                                                 </p>
                                                 <p>
-                                                    End date: {item.performend}
+                                                    End date: 
+                                                    {dateFormat(item.performend, 'fullDate')}
                                                 </p>
                                                 <div>
                                                     Time Left:
@@ -238,10 +250,10 @@ class DisplayData extends React.Component {
                                             <div>
                                                 <p>
                                                     Start Date:{" "}
-                                                    {item.advancestart}
+                                                    {dateFormat(item.advancestart, 'fullDate')}
                                                 </p>
                                                 <p>
-                                                    End date: {item.advanceend}
+                                                    {dateFormat(item.advanceend, 'fullDate')}
                                                 </p>
                                                 <div>
                                                     Time Left:
@@ -263,10 +275,10 @@ class DisplayData extends React.Component {
                                             <div>
                                                 <p>
                                                     Start Date:{" "}
-                                                    {item.insurestart}
+                                                    {dateFormat(item.insurestart, 'fullDate')}
                                                 </p>
                                                 <p>
-                                                    End date: {item.insureend}
+                                                    {dateFormat(item.insureend, 'fullDate')}
                                                 </p>
                                                 <div>
                                                     Time Left:

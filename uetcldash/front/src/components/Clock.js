@@ -42,21 +42,6 @@ class Clock extends Component {
     let timeStatus = {
      color: 'blue',
     };
-    // const danger = {color: 'red'};
-    // const warning = {color: 'orange'};
-    // const running = {color: 'green'};
-
-    // const  timeStatus = (t) =>{
-    //   if(t < 1){
-    //     return 1;
-    //   }
-    //   if(t < 3){
-    //     return 2;
-    //   }
-    //   if(t >= 3){
-    //     return 3;
-    //   }
-    // }
 
     if(this.state.months < 1){
      timeStatus = {
@@ -70,10 +55,11 @@ class Clock extends Component {
       timeStatus = {
      color: 'green',
      };
-    }
+    };
 
-
-
+     if (this.state.days <= 0 ){
+     return  <div style={timeStatus}> EXPIRED </div>
+     } else {
     return (
         <div>
             <div className="Clock-years" style={timeStatus}>
@@ -81,11 +67,11 @@ class Clock extends Component {
                 {this.leading0(this.state.months)} months{" "}
                 {this.leading0(this.state.days)} days
             </div>
-            {/* <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
-        <div className="Clock-minutes">{this.leading0(this.state.minutes)} minutes</div>
-        <div className="Clock-seconds">{this.leading0(this.state.seconds)} seconds</div> */}
-        </div>
+
+    </div>
+            
     );
+     }
   }
 }
 
