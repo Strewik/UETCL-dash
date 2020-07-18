@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { Form, Datepicker, SubmitBtn, Textarea, Input } from "react-formik-ui";
+import { Form, Datepicker, Button, Textarea, Input } from "react-formik-ui";
 import axios from "axios";
 import * as Yup from "yup";
 import React, { Component } from "react";
@@ -82,14 +82,38 @@ export default class NewProject extends Component {
     this.state = {};
   }
 
+  changeHandler = event => {
+    this.setState({
+      project: event.target.value,
+      rapstart: event.target.value,
+      rapend: event.target.value,
+      pdpstart: event.target.value,
+      pdpend: event.target.value,
+      resettlestart: event.target.value,
+      resettleend: event.target.value,
+      supervisionstart: event.target.value,
+      supervisionend: event.target.value,
+      epcstart: event.target.value,
+      epcend: event.target.value,
+      performstart: event.target.value,
+      performend: event.target.value,
+      advancestart: event.target.value,
+      advanceend: event.target.value,
+      insurestart: event.target.value,
+      insureend: event.target.value,
+      comment: event.target.value
+    });
+  };
+
   render() {
     const { history } = this.props;
     const mystyle = {
-      padding: "100px",
+      paddingLeft: "100px",
+      paddingRight: "100px",
       fontFamily: "Arial"
     };
     const title = {
-      padding: "25px"
+      padding: "1px"
     };
     return (
       <Formik
@@ -125,6 +149,9 @@ export default class NewProject extends Component {
           <Form mode="themed">
             <div style={mystyle}>
               <div>
+                <div style={title}>
+                  <h1>Add Project Form</h1>
+                </div>
                 <div>
                   <Box
                     boxShadow={5}
@@ -144,6 +171,7 @@ export default class NewProject extends Component {
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
+                        onChange={this.changeHandler}
                       />
                       <Datepicker
                         name="rapend"
@@ -151,6 +179,7 @@ export default class NewProject extends Component {
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
+                        onChange={this.changeHandler}
                       />
                     </div>
                   </Box>
@@ -350,7 +379,9 @@ export default class NewProject extends Component {
                   />
                 </div>
               </div>
-              <SubmitBtn />
+              <Button variant="primary" type="submit">
+                Save Project
+              </Button>
             </div>
           </Form>
         )}

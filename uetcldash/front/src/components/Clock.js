@@ -40,7 +40,7 @@ class Clock extends Component {
 
   render() {
     let timeStatus = {
-     color: 'blue',
+      color: "blue"
     };
 
     if(this.state.months < 1){
@@ -49,9 +49,9 @@ class Clock extends Component {
      };
     }else if(this.state.months < 3){
       timeStatus = {
-     color: 'orange',
-     };
-    }else{
+        color: "orange"
+      };
+    } else {
       timeStatus = {
      color: 'green',
      };
