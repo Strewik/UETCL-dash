@@ -18,6 +18,9 @@
     font-size: 1.2rem;
     margin-bottom: 30px;
   }
+  .addButton{
+    padding-top: 20px;
+  }
   
   .projects {
     display: flex;

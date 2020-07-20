@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://127.0.0.1:8000",
+  "proxy": "http://127.0.0.1:8000",
   "dependencies": {
     "@date-io/date-fns": "1.x",
     "@material-ui/core": "^4.10.1",
@@ -14,6 +14,7 @@
     "bootstrap": "^4.5.0",
     "formik": "^2.1.4",
     "material-ui": "^0.20.2",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.1",
     "react-dom": "^16.13.1",

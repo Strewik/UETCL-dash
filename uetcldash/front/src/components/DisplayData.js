@@ -53,7 +53,11 @@ class DisplayData extends React.Component {
 
     return (
       <div className="App">
-        <Button onClick={() => history.push("/newproject")}>Add Project</Button>
+        <div className="addButton">
+          <Button onClick={() => history.push("/newproject")}>
+            Add Project
+          </Button>
+        </div>
         <h1>Projects Running</h1>
         {items.map(item => (
           <div key={item.id}>

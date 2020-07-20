@@ -5,9 +5,7 @@ import * as Yup from "yup";
 import React, { Component } from "react";
 import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
-// import styles from './styles.module.css';
 
-/////////////////////////////////////
 const formSchema = Yup.object().shape({
   project: Yup.string()
     .min(2, "Too Short!")
@@ -56,28 +54,7 @@ const formSchema = Yup.object().shape({
   )
 });
 
-const initialValues = {
-  project: "",
-  rapstart: "",
-  rapend: "",
-  pdpstart: "",
-  pdpend: "",
-  resettlestart: "",
-  resettleend: "",
-  supervisionstart: "",
-  supervisionend: "",
-  epcstart: "",
-  epcend: "",
-  performstart: "",
-  performend: "",
-  advancestart: "",
-  advanceend: "",
-  insurestart: "",
-  insureend: "",
-  comment: ""
-};
-
-export default class NewProject extends Component {
+export default class EditProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,7 +80,6 @@ export default class NewProject extends Component {
       }
     };
   }
-
   componentDidMount = () => {
     axios
       .get(`http://localhost:8000/api/dates/${this.props.match.params.id}/`)
@@ -111,29 +87,6 @@ export default class NewProject extends Component {
         this.setState({ item: res.data });
       })
       .catch(err => console.log(err));
-  };
-
-  changeHandler = event => {
-    this.setState({
-      project: event.target.value,
-      rapstart: event.target.value,
-      rapend: event.target.value,
-      pdpstart: event.target.value,
-      pdpend: event.target.value,
-      resettlestart: event.target.value,
-      resettleend: event.target.value,
-      supervisionstart: event.target.value,
-      supervisionend: event.target.value,
-      epcstart: event.target.value,
-      epcend: event.target.value,
-      performstart: event.target.value,
-      performend: event.target.value,
-      advancestart: event.target.value,
-      advanceend: event.target.value,
-      insurestart: event.target.value,
-      insureend: event.target.value,
-      comment: event.target.value
-    });
   };
 
   handleChange = e => {
@@ -158,7 +111,8 @@ export default class NewProject extends Component {
 
     return (
       <Formik
-        initialValues={initialValues}
+        enableReinitialize={true}
+        initialValues={this.state.item}
         validationSchema={formSchema}
         onSubmit={async (values, actions) => {
           await axios({
@@ -170,7 +124,6 @@ export default class NewProject extends Component {
               actions.setSubmitting(true);
               //   actions.resetForm();
               console.log(values);
-              // redirect to the homepage
               history.push("/");
             })
             .catch(error => {
@@ -201,20 +154,12 @@ export default class NewProject extends Component {
                     p={1}
                     style={{ padding: 10, borderRadius: 10 }}
                   >
-                    {/* <Input
-                      name="id"
-                      // label="Project Id"
-                      required
-                      disabled
-                      value={this.state.item.id}
-                    /> */}
-
                     <Input
                       name="project"
-                      // label="Project name"
-                      // required
+                      label="Project name"
+                      required
                       value={this.state.item.project}
-                      // onChange={this.handleChange}
+                      onChange={this.handleChange}
                     />
 
                     <div style={title}>
@@ -223,25 +168,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="rapstart"
-                        // defaultValue={this.props.editrapstart}
-                        // value={values.rapstart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.rapstart}
-                        // onChange={this.changeHandler}
-                        // onChange={this.handleChange}
+                        selected={this.state.item.rapstart}
+                        onChange={date => setFieldValue("rapstart", date)}
                       />
                       <Datepicker
                         name="rapend"
-                        // defaultValue={this.props.editrapend}
-                        // value={values.rapend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.rapend}
-                        // onChange={this.changeHandler}
-                        // onChange={this.handleChange}
+                        selected={this.state.item.rapend}
+                        onChange={date => setFieldValue("rapend", date)}
                       />
                     </div>
                   </Box>
@@ -258,23 +197,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="pdpstart"
-                        // defaultValue={this.props.editpdpstart}
-                        // value={values.pdpstart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.pdpstart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.pdpstart}
+                        onChange={date => setFieldValue("pdpstart", date)}
                       />
                       <Datepicker
                         name="pdpend"
-                        // defaultValue={this.props.editpdpend}
-                        // value={values.pdpend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.pdpend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.pdpend}
+                        onChange={date => setFieldValue("pdpend", date)}
                       />
                     </div>
                   </Box>
@@ -291,23 +226,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="resettlestart"
-                        // defaultValue={this.props.editresettlestart}
-                        // value={values.resettlestart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.resettlestart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.resettlestart}
+                        onChange={date => setFieldValue("resettlestart", date)}
                       />
                       <Datepicker
                         name="resettleend"
-                        // defaultValue={this.props.editresettleend}
-                        // value={values.resettleend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.resettleend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.resettleend}
+                        onChange={date => setFieldValue("resettleend", date)}
                       />
                     </div>
                   </Box>
@@ -324,23 +255,21 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="supervisionstart"
-                        // defaultValue={this.props.editsupervisionstart}
-                        // value={values.supervisionstart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.supervisionstart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.supervisionstart}
+                        onChange={date =>
+                          setFieldValue("supervisionstart", date)
+                        }
                       />
                       <Datepicker
                         name="supervisionend"
-                        // defaultValue={this.props.editsupervisionend}
-                        // value={values.supervisionend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.supervisionend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.supervisionend}
+                        onChange={date => setFieldValue("supervisionend", date)}
                       />
                     </div>
                   </Box>
@@ -357,23 +286,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="epcstart"
-                        // defaultValue={this.props.editepcstart}
-                        // value={values.epcstart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.epcstart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.epcstart}
+                        onChange={date => setFieldValue("epcstart", date)}
                       />
                       <Datepicker
                         name="epcend"
-                        // defaultValue={this.props.editepcend}
-                        // value={values.epcend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.epcend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.epcend}
+                        onChange={date => setFieldValue("epcend", date)}
                       />
                     </div>
                   </Box>
@@ -390,23 +315,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="performstart"
-                        // defaultValue={this.props.editperformstart}
-                        // value={values.performstart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.performstart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.performstart}
+                        onChange={date => setFieldValue("performstart", date)}
                       />
                       <Datepicker
                         name="performend"
-                        // defaultValue={this.props.editperformend}
-                        // value={values.performend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.performend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.performend}
+                        onChange={date => setFieldValue("performend", date)}
                       />
                     </div>
                   </Box>
@@ -423,23 +344,19 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="advancestart"
-                        // defaultValue={this.props.editadvancestart}
-                        // value={values.advancestart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.advancestart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.advancestart}
+                        onChange={date => setFieldValue("advancestart", date)}
                       />
                       <Datepicker
                         name="advanceend"
-                        // defaultValue={this.props.editadvanceend}
-                        // value={values.advanceend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.advanceend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.advanceend}
+                        onChange={date => setFieldValue("advanceend", date)}
                       />
                     </div>
                   </Box>
@@ -456,34 +373,28 @@ export default class NewProject extends Component {
                     <div>
                       <Datepicker
                         name="insurestart"
-                        // defaultValue={this.props.editinsurestart}
-                        // value={values.insurestart}
                         label="Start date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.insurestart}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.insurestart}
+                        onChange={date => setFieldValue("insurestart", date)}
                       />
                       <Datepicker
                         name="insureend"
-                        // defaultValue={this.props.editinsureend}
-                        // value={values.insureend}
                         label="End date"
                         placeholder="DD.MM.YYYYY"
                         dateFormat="dd.MM.yyyy"
-                        value={this.state.item.insureend}
-                        // onChange={this.changeHandler}
+                        selected={this.state.item.insureend}
+                        onChange={date => setFieldValue("insureend", date)}
                       />
                     </div>
                   </Box>
                   <div style={{ paddingTop: 50, width: "100%" }}>
                     <Input
                       name="comment"
-                      // defaultValue={this.props.editcomment}
-                      // value={values.comment}
                       label="Write a comment"
                       value={this.state.item.comment}
-                      // onChange={this.changeHandler}
+                      onChange={this.handleChange}
                     />
                   </div>
                 </div>
