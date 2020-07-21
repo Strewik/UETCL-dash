@@ -115,6 +115,8 @@ export default class NewProject extends Component {
     };
     const title = {
       padding: "1px"
+    };const boxed = {
+      width: "30%"
     };
     return (
       <Formik
@@ -312,13 +314,13 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <Input name="project" label="Project name" required />
                     <div style={title}>
                       <h3>RAP Consultant</h3>
                     </div>
-                    <div>
+                    <div style={boxed}>
                       <Datepicker
                         name="rapstart"
                         value={values.rapstart}
@@ -342,7 +344,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>PDP Houses Consultant</h3>
@@ -369,10 +371,10 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
-                      <h3>Resettlement Houses Consultant</h3>
+                      <h3>Resettlement Houses Contractor</h3>
                     </div>
                     <div>
                       <Datepicker
@@ -396,7 +398,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Supervision Consultant</h3>
@@ -423,7 +425,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>EPC</h3>
@@ -450,7 +452,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Performance Guarantee</h3>
@@ -477,7 +479,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Advance Payment Guarantee</h3>
@@ -504,7 +506,7 @@ export default class NewProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Insurance</h3>
