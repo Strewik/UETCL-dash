@@ -1,76 +1,16 @@
-// import { Formik } from "formik";
-// import { Form, Datepicker, Input, Button } from "react-formik-ui";
-// import axios from "axios";
-// import * as Yup from "yup";
-// import React, { Component } from "react";
-// import Box from "@material-ui/core/Box";
-// import "react-toastify/dist/ReactToastify.css";
-// // import styles from './styles.module.css';
+import { Formik } from "formik";
+import { Form, Datepicker, Input, Button } from "react-formik-ui";
+import axios from "axios";
+import * as Yup from "yup";
+import React, { Component } from "react";
+import Box from "@material-ui/core/Box";
+import "react-toastify/dist/ReactToastify.css";
 
-// /////////////////////////////////////
-// const formSchema = Yup.object().shape({
-//   project: Yup.string()
-//     .min(2, "Too Short!")
-//     .max(50, "Too Long!"),
-
-//   rapstart: Yup.date(),
-//   rapend: Yup.date(),
-
-//   pdpstart: Yup.date(),
-//   pdpend: Yup.date(),
-
-//   resettlestart: Yup.date(),
-//   resettleend: Yup.date().min(
-//     Yup.ref("resettlestart"),
-//     "End date can't be before start date"
-//   ),
-//   supervisionstart: Yup.date(),
-//   supervisionend: Yup.date().min(
-//     Yup.ref("supervisionstart"),
-//     "End date can't be before start date"
-//   ),
-//   epcstart: Yup.date(),
-//   epcend: Yup.date().min(
-//     Yup.ref("epcstart"),
-//     "End date can't be before start date"
-//   ),
-//   performstart: Yup.date(),
-//   performend: Yup.date().min(
-//     Yup.ref("performstart"),
-//     "End date can't be before start date"
-//   ),
-//   advancestart: Yup.date(),
-//   advanceend: Yup.date().min(
-//     Yup.ref("advancestart"),
-//     "End date can't be before start date"
-//   ),
-//   insurestart: Yup.date(),
-//   insureend: Yup.date().min(
-//     Yup.ref("insurestart"),
-//     "End date can't be before start date"
-//   )
-// });
-
-// // const initialValues = {
-// //   project: "",
-// //   rapstart: "",
-// //   rapend: "",
-// //   pdpstart: "",
-// //   pdpend: "",
-// //   resettlestart: "",
-// //   resettleend: "",
-// //   supervisionstart: "",
-// //   supervisionend: "",
-// //   epcstart: "",
-// //   epcend: "",
-// //   performstart: "",
-// //   performend: "",
-// //   advancestart: "",
-// //   advanceend: "",
-// //   insurestart: "",
-// //   insureend: "",
-// //   comment: ""
-// // };
+const formSchema = Yup.object().shape({
+  project: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("You must specify the Project name"),
 
 // export default class NewProject extends Component {
 //   constructor(props) {
@@ -99,48 +39,43 @@
 //     };
 //   }
 
-//   componentDidMount = () => {
-//     axios
-//       .get(`http://localhost:8000/api/dates/${this.props.match.params.id}/`)
-//       .then(res => {
-//         this.setState({ item: res.data });
-//       })
-//       .catch(err => console.log(err));
-//   };
+export default class EditProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      item: {
+        project: "",
+        rapstart: "",
+        rapend: "",
+        pdpstart: "",
+        pdpend: "",
+        resettlestart: "",
+        resettleend: "",
+        supervisionstart: "",
+        supervisionend: "",
+        epcstart: "",
+        epcend: "",
+        performstart: "",
+        performend: "",
+        advancestart: "",
+        advanceend: "",
+        insurestart: "",
+        insureend: "",
+        comment: ""
+      }
+    };
+  }
+  componentDidMount = () => {
+    axios
+      .get(`http://localhost:8000/api/dates/${this.props.match.params.id}/`)
+      .then(res => {
+        this.setState({ item: res.data });
+      })
+      .catch(err => console.log(err));
+  };
 
-//   changeHandler = event => {
-//     this.setState({
-//       project: event.target.value,
-//       rapstart: event.target.value,
-//       rapend: event.target.value,
-//       pdpstart: event.target.value,
-//       pdpend: event.target.value,
-//       resettlestart: event.target.value,
-//       resettleend: event.target.value,
-//       supervisionstart: event.target.value,
-//       supervisionend: event.target.value,
-//       epcstart: event.target.value,
-//       epcend: event.target.value,
-//       performstart: event.target.value,
-//       performend: event.target.value,
-//       advancestart: event.target.value,
-//       advanceend: event.target.value,
-//       insurestart: event.target.value,
-//       insureend: event.target.value,
-//       comment: event.target.value
-//     });
-//   };
-
-//   handleChange = e => {
-//     e.persist();
-
-//     this.setState(prevState => ({
-//       item: { ...prevState.item, [e.target.name]: e.target.value }
-//     }));
-//   };
-
-//   render() {
-//     const { history } = this.props;
+  handleChange = e => {
+    e.persist();
 
 //     const mystyle = {
 //       paddingLeft: "100px",
@@ -525,90 +460,58 @@ class EditProject extends Component {
             comment: "",
         };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-    componentDidMount() {
-        this.getMeetupDetails();
-    }
-
-    getMeetupDetails(){
-        let meetupId = this. props.match.params.id;
-        axios
-            .get(`http://localhost:8000/api/dates/${meetupId}/`)
-            .then((response) => {
-                this.setState(
-                    {
-                        id: response.data.id,
-                        project: response.data.project,
-                        rapstart: response.data.rapstart,
-                        rapend: response.data.rapend,
-                        pdpstart: response.data.pdpstart,
-                        pdpend: response.data.pdpend,
-                        resettlestart: response.data.resettlestart,
-                        resettleend: response.data.resettleend,
-                        supervisionstart: response.data.supervisionstart,
-                        supervisionend: response.data.supervisionend,
-                        epcstart: response.data.epcstart,
-                        epcend: response.data.epcend,
-                        performstart: response.data.performstart,
-                        performend: response.data.performend,
-                        advancestart: response.data.advancestart,
-                        advanceend: response.data.advanceend,
-                        insurestart: response.data.insurestart,
-                        insureend: response.data.insureend,
-                        comment: response.data.comment,
-                    },
-                    () => {
-                        console.log(this.state);
-                    }
-                );
+    return (
+      <Formik
+        enableReinitialize={true}
+        initialValues={this.state.item}
+        validationSchema={formSchema}
+        onSubmit={async (values, actions) => {
+          await axios({
+            method: "PUT",
+            url: `http://127.0.0.1:8000/api/dates/${this.props.match.params.id}/`,
+            data: values
+          })
+            .then(response => {
+              actions.setSubmitting(true);
+              //   actions.resetForm();
+              console.log(values);
+              history.push("/");
             })
-            .catch((err) => console.log(err));
-    }
-
-    editMeetup(newMeetup) {
-        axios
-            .request({
-                method: "put",
-                url: `http://localhost:8000/api/dates/${this.state.id}/`,
-                data: newMeetup,
-            })
-            .then((response) => {
-                this.props.history.push("/");
-            })
-            .catch((err) => console.log(err));
-    }
-
-    onSubmit(e) {
-        const newMeetup = {
-            project: this.ref.project.value,
-            rapstart: this.refs.rapstart.value,
-            rapend: this.refs.rapend.value,
-            pdpstart: this.refs.pdpstart.value,
-            pdpend: this.refs.pdpend.value,
-            resettlestart: this.refs.resettlestart.value,
-            resettleend: this.refs.resettleend.value,
-            supervisionstart: this.refs.supervisionstart.value,
-            supervisionend: this.refs.supervisionend.value,
-            epcstart: this.refs.epcstart.value,
-            epcend: this.refs.epcend.value,
-            performstart: this.refs.performstart.value,
-            performend: this.refs.performend.value,
-            advancestart: this.refs.advancestart.value,
-            advanceend: this.refs.advanceend.value,
-            insurestart: this.refs.insurestart.value,
-            insureend: this.refs.insureend.value,
-            comment: this.refs.comment.value,
-        };
-        this.editMeetup(newMeetup);
-        e.preventDefault();
-    }
-
-    handleInputChange(e) {
-        const target = e.target;
-        const value = target.value;
-        const name = target.name;
+            .catch(error => {
+              actions.setSubmitting(true);
+            });
+        }}
+      >
+        {({
+          values,
+          errors,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+          setFieldValue
+        }) => (
+          <Form mode="themed">
+            <div style={mystyle}>
+              <div>
+                <div style={title}>
+                  <h1>Edit Project</h1>
+                </div>
+                <div>
+                  <Box
+                    boxShadow={5}
+                    bgcolor="background.paper"
+                    m={1}
+                    p={1}
+                    style={{ padding: 10, borderRadius: 10 }}
+                  >
+                    <Input
+                      name="project"
+                      label="Project name"
+                      required
+                      value={this.state.item.project}
+                      onChange={this.handleChange}
+                    />
 
         this.setState({
             [name]: value,
@@ -634,15 +537,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="project">Project</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="rapstart" 
-                            ref="rapstart"
-                            value={this.state.rapstart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="rapstart">RAP Start</label>
+                    <div>
+                      <Datepicker
+                        name="rapstart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.rapstart}
+                        onChange={date => setFieldValue("rapstart", date)}
+                      />
+                      <Datepicker
+                        name="rapend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.rapend}
+                        onChange={date => setFieldValue("rapend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -654,17 +565,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="rapend">RAP End</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="pdpstart"
-                            ref="pdpstart"
-                            value={this.state.pdpstart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="pdpstart">
-                            PDP Houses Contractor start
-                        </label>
+                    <div>
+                      <Datepicker
+                        name="pdpstart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.pdpstart}
+                        onChange={date => setFieldValue("pdpstart", date)}
+                      />
+                      <Datepicker
+                        name="pdpend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.pdpend}
+                        onChange={date => setFieldValue("pdpend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -676,15 +593,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="pdpend">pdpend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="resettlestart"
-                            ref="resettlestart"
-                            value={this.state.resettlestart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="resettlestart">resettlestart</label>
+                    <div>
+                      <Datepicker
+                        name="resettlestart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.resettlestart}
+                        onChange={date => setFieldValue("resettlestart", date)}
+                      />
+                      <Datepicker
+                        name="resettleend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.resettleend}
+                        onChange={date => setFieldValue("resettleend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -696,17 +621,25 @@ class EditProject extends Component {
                         />
                         <label htmlFor="resettleend">resettleend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="supervisionstart"
-                            ref="supervisionstart"
-                            value={this.state.supervisionstart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="supervisionstart">
-                            supervisionstart
-                        </label>
+                    <div>
+                      <Datepicker
+                        name="supervisionstart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.supervisionstart}
+                        onChange={date =>
+                          setFieldValue("supervisionstart", date)
+                        }
+                      />
+                      <Datepicker
+                        name="supervisionend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.supervisionend}
+                        onChange={date => setFieldValue("supervisionend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -718,15 +651,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="supervisionend">supervisionend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="epcstart"
-                            ref="epcstart"
-                            value={this.state.epcstart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="epcstart">epcstart</label>
+                    <div>
+                      <Datepicker
+                        name="epcstart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.epcstart}
+                        onChange={date => setFieldValue("epcstart", date)}
+                      />
+                      <Datepicker
+                        name="epcend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.epcend}
+                        onChange={date => setFieldValue("epcend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -738,15 +679,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="epcend">epcend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="performstart"
-                            ref="performstart"
-                            value={this.state.performstart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="performstart">performstart</label>
+                    <div>
+                      <Datepicker
+                        name="performstart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.performstart}
+                        onChange={date => setFieldValue("performstart", date)}
+                      />
+                      <Datepicker
+                        name="performend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.performend}
+                        onChange={date => setFieldValue("performend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -758,15 +707,23 @@ class EditProject extends Component {
                         />
                         <label htmlFor="performend">performend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="advancestart"
-                            ref="advancestart"
-                            value={this.state.advancestart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="advancestart">advancestart</label>
+                    <div>
+                      <Datepicker
+                        name="advancestart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.advancestart}
+                        onChange={date => setFieldValue("advancestart", date)}
+                      />
+                      <Datepicker
+                        name="advanceend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.advanceend}
+                        onChange={date => setFieldValue("advanceend", date)}
+                      />
                     </div>
                     <div className="input-field">
                         <input
@@ -778,38 +735,39 @@ class EditProject extends Component {
                         />
                         <label htmlFor="advanceend">advanceend</label>
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="insurestart"
-                            ref="insurestart"
-                            value={this.state.insurestart}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="insurestart">insurestart</label>
+                    <div>
+                      <Datepicker
+                        name="insurestart"
+                        label="Start date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.insurestart}
+                        onChange={date => setFieldValue("insurestart", date)}
+                      />
+                      <Datepicker
+                        name="insureend"
+                        label="End date"
+                        placeholder="DD.MM.YYYYY"
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.item.insureend}
+                        onChange={date => setFieldValue("insureend", date)}
+                      />
                     </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="insureend"
-                            ref="insureend"
-                            value={this.state.insureend}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="insureend">insureend</label>
-                    </div>
-                    <div className="input-field">
-                        <input
-                            type="text"
-                            name="comment"
-                            ref="comment"
-                            value={this.state.comment}
-                            onChange={this.handleInputChange}
-                        />
-                        <label htmlFor="comment">comment</label>
-                    </div>
-                    <input type="submit" value="Save" className="btn" />
-                </form>
+                  </Box>
+                  <div style={{ paddingTop: 50, width: "100%" }}>
+                    <Input
+                      name="comment"
+                      label="Write a comment"
+                      value={this.state.item.comment}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <Button variant="primary" type="submit">
+                Update Project
+              </Button>
             </div>
         );
     }
