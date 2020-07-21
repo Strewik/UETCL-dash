@@ -152,7 +152,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <Input
                       name="project"
@@ -189,7 +189,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>PDP Houses Consultant</h3>
@@ -218,7 +218,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Resettlement Houses Contractor</h3>
@@ -247,7 +247,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Supervision Consultant</h3>
@@ -278,7 +278,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>EPC</h3>
@@ -307,7 +307,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Performance Guarantee</h3>
@@ -336,7 +336,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Advance Payment Guarantee</h3>
@@ -365,7 +365,7 @@ export default class EditProject extends Component {
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ padding: 10, borderRadius: 10 }}
+                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
                   >
                     <div style={title}>
                       <h3>Insurance</h3>
