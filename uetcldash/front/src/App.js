@@ -7,7 +7,6 @@ import EditProject from "./components/EditProject";
 import DisplayData from "./components/DisplayData";
 import Project from "./components/Project";
 import ProjectLanding from "./components/ProjectLanding";
-import EditProject from "./components/EditProject";
 
 import uetcllogo2 from "./images/uetcllogo2.jpg";
 

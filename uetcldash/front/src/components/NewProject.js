@@ -76,7 +76,7 @@ const initialValues = {
   comment: ""
 };
 
-export default class NewProject extends Component {
+export default class NewProject extends Component { 
   constructor(props) {
     super(props);
     this.state = {};
