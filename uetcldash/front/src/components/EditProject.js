@@ -147,248 +147,255 @@ export default class EditProject extends Component {
                   <h1>Edit Project</h1>
                 </div>
                 <div>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <Input
-                      name="project"
-                      label="Project name"
-                      required
-                      value={this.state.item.project}
-                      onChange={this.handleChange}
-                    />
-
-                    <div style={title}>
-                      <h3>RAP Consultant</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="rapstart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.rapstart}
-                        onChange={date => setFieldValue("rapstart", date)}
-                      />
-                      <Datepicker
-                        name="rapend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.rapend}
-                        onChange={date => setFieldValue("rapend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>PDP Houses Consultant</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="pdpstart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.pdpstart}
-                        onChange={date => setFieldValue("pdpstart", date)}
-                      />
-                      <Datepicker
-                        name="pdpend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.pdpend}
-                        onChange={date => setFieldValue("pdpend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>Resettlement Houses Contractor</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="resettlestart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.resettlestart}
-                        onChange={date => setFieldValue("resettlestart", date)}
-                      />
-                      <Datepicker
-                        name="resettleend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.resettleend}
-                        onChange={date => setFieldValue("resettleend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>Supervision Consultant</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="supervisionstart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.supervisionstart}
-                        onChange={date =>
-                          setFieldValue("supervisionstart", date)
-                        }
-                      />
-                      <Datepicker
-                        name="supervisionend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.supervisionend}
-                        onChange={date => setFieldValue("supervisionend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>EPC</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="epcstart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.epcstart}
-                        onChange={date => setFieldValue("epcstart", date)}
-                      />
-                      <Datepicker
-                        name="epcend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.epcend}
-                        onChange={date => setFieldValue("epcend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>Performance Guarantee</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="performstart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.performstart}
-                        onChange={date => setFieldValue("performstart", date)}
-                      />
-                      <Datepicker
-                        name="performend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.performend}
-                        onChange={date => setFieldValue("performend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>Advance Payment Guarantee</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="advancestart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.advancestart}
-                        onChange={date => setFieldValue("advancestart", date)}
-                      />
-                      <Datepicker
-                        name="advanceend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.advanceend}
-                        onChange={date => setFieldValue("advanceend", date)}
-                      />
-                    </div>
-                  </Box>
-                  <Box
-                    boxShadow={5}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ padding: 10, borderRadius: 10, width: "30%" }}
-                  >
-                    <div style={title}>
-                      <h3>Insurance</h3>
-                    </div>
-                    <div>
-                      <Datepicker
-                        name="insurestart"
-                        label="Start date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.insurestart}
-                        onChange={date => setFieldValue("insurestart", date)}
-                      />
-                      <Datepicker
-                        name="insureend"
-                        label="End date"
-                        placeholder="DD.MM.YYYYY"
-                        dateFormat="dd.MM.yyyy"
-                        selected={this.state.item.insureend}
-                        onChange={date => setFieldValue("insureend", date)}
-                      />
-                    </div>
-                  </Box>
+                  <Input
+                    name="project"
+                    label="Project name"
+                    required
+                    value={this.state.item.project}
+                    onChange={this.handleChange}
+                  />
+                  <div style={{ display: "flex" }}>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>RAP Consultant</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="rapstart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.rapstart}
+                          onChange={date => setFieldValue("rapstart", date)}
+                        />
+                        <Datepicker
+                          name="rapend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.rapend}
+                          onChange={date => setFieldValue("rapend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>PDP Houses Consultant</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="pdpstart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.pdpstart}
+                          onChange={date => setFieldValue("pdpstart", date)}
+                        />
+                        <Datepicker
+                          name="pdpend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.pdpend}
+                          onChange={date => setFieldValue("pdpend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>Resettlement Houses Contractor</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="resettlestart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.resettlestart}
+                          onChange={date =>
+                            setFieldValue("resettlestart", date)
+                          }
+                        />
+                        <Datepicker
+                          name="resettleend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.resettleend}
+                          onChange={date => setFieldValue("resettleend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>Supervision Consultant</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="supervisionstart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.supervisionstart}
+                          onChange={date =>
+                            setFieldValue("supervisionstart", date)
+                          }
+                        />
+                        <Datepicker
+                          name="supervisionend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.supervisionend}
+                          onChange={date =>
+                            setFieldValue("supervisionend", date)
+                          }
+                        />
+                      </div>
+                    </Box>
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>EPC</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="epcstart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.epcstart}
+                          onChange={date => setFieldValue("epcstart", date)}
+                        />
+                        <Datepicker
+                          name="epcend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.epcend}
+                          onChange={date => setFieldValue("epcend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>Performance Guarantee</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="performstart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.performstart}
+                          onChange={date => setFieldValue("performstart", date)}
+                        />
+                        <Datepicker
+                          name="performend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.performend}
+                          onChange={date => setFieldValue("performend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>Advance Payment Guarantee</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="advancestart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.advancestart}
+                          onChange={date => setFieldValue("advancestart", date)}
+                        />
+                        <Datepicker
+                          name="advanceend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.advanceend}
+                          onChange={date => setFieldValue("advanceend", date)}
+                        />
+                      </div>
+                    </Box>
+                    <Box
+                      boxShadow={5}
+                      bgcolor="background.paper"
+                      m={1}
+                      p={1}
+                      style={{ padding: 10, borderRadius: 10, width: "30%" }}
+                    >
+                      <div style={title}>
+                        <h3>Insurance</h3>
+                      </div>
+                      <div>
+                        <Datepicker
+                          name="insurestart"
+                          label="Start date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.insurestart}
+                          onChange={date => setFieldValue("insurestart", date)}
+                        />
+                        <Datepicker
+                          name="insureend"
+                          label="End date"
+                          placeholder="DD.MM.YYYYY"
+                          dateFormat="dd.MM.yyyy"
+                          selected={this.state.item.insureend}
+                          onChange={date => setFieldValue("insureend", date)}
+                        />
+                      </div>
+                    </Box>
+                  </div>
                   <div style={{ paddingTop: 50, width: "100%" }}>
                     <Input
                       name="comment"
@@ -399,8 +406,18 @@ export default class EditProject extends Component {
                   </div>
                 </div>
               </div>
-
-              <Button variant="primary" type="submit">
+              <Button
+                style={{
+                  padding: 10,
+                  borderRadius: 10,
+                  width: "16%",
+                  backgroundColor: "#1E90FF",
+                  color: "#fff",
+                  fontWeight: "bold",
+                  fontSize: "18px"
+                }}
+                type="submit"
+              >
                 Update Project
               </Button>
             </div>
