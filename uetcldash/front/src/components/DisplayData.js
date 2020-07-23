@@ -32,16 +32,12 @@ class DisplayData extends React.Component {
   }
 
   deleteProject(id) {
-    // Issue DELETE request
     axios
       .delete(`http://127.0.0.1:8000/api/dates/${id}/`)
       .then(() => {
-        // Issue GET request after item deleted to get updated list
-        // that excludes item of id
         return axios.get(`http://127.0.0.1:8000/api/dates/`);
       })
       .then(res => {
-        // Update items in state as per-usual
         const items = res.data;
         this.setState({ items });
         console.log(items);

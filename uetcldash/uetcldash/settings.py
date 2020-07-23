@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dates',
+    'front',
     'rest_framework',
     'corsheaders',
 ]
@@ -60,11 +61,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8000",
     "http://localhost:8000",
-    "http://localhost:3000",
-    # "http://192.168.1.196:3000",
-
+    "http://localhost:3000"
 ]
-
 
 
 CORS_ORIGIN_REGEX_WHITELIST = [
@@ -91,7 +89,9 @@ ROOT_URLCONF = 'uetcldash.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'front/build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,3 +155,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/build/static')
+]

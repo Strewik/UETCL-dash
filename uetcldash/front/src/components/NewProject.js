@@ -140,7 +140,6 @@ export default class NewProject extends Component {
                       p={1}
                       style={{ padding: 10, borderRadius: 10, width: "30%" }}
                     >
-                      {/* <Input name="project" label="Project name" required /> */}
                       <div style={title}>
                         <h3>RAP Consultant</h3>
                       </div>

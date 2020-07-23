@@ -122,7 +122,6 @@ export default class EditProject extends Component {
           })
             .then(response => {
               actions.setSubmitting(true);
-              //   actions.resetForm();
               console.log(values);
               history.push("/");
             })
