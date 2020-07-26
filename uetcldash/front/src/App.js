@@ -12,7 +12,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     redirect: true
   };
@@ -56,5 +56,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
