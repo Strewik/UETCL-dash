@@ -5,6 +5,9 @@ import * as Yup from "yup";
 import React, { Component } from "react";
 import Box from "@material-ui/core/Box";
 import "react-toastify/dist/ReactToastify.css";
+import "./style.css";
+
+import cancel from "../images/cancel.png";
 
 const formSchema = Yup.object().shape({
   project: Yup.string()
@@ -140,6 +143,11 @@ export default class EditProject extends Component {
           setFieldValue
         }) => (
           <Form mode="themed">
+            <div className="butt">
+              <button onClick={() => history.push("/")}>
+                <img src={cancel} alt={"Cancel"} />
+              </button>
+            </div>
             <div style={mystyle}>
               <div>
                 <div style={title}>

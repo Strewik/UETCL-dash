@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 import Clock from "./Clock";
-import { Button } from "react-bootstrap";
 import axios from "axios";
 import dateFormat from "dateformat";
 
 import delete3 from "../images/delete3.png";
 import edit7 from "../images/edit7.png";
+import add from "../images/add.png";
 
 class DisplayData extends React.Component {
   constructor(props) {
@@ -51,21 +51,10 @@ class DisplayData extends React.Component {
 
     return (
       <div className="App">
-        <div className="addButton">
-          <Button
-            style={{
-              flex: "right",
-              padding: 10,
-              borderRadius: 10,
-              width: "15%",
-              backgroundColor: "#fff",
-              fontWeight: "bold",
-              fontSize: "20px"
-            }}
-            onClick={() => history.push("/newproject")}
-          >
-            Add Project
-          </Button>
+        <div className="butt">
+          <button onClick={() => history.push("/newproject")}>
+            <img src={add} alt={"Add"} />
+          </button>
         </div>
         <h1>Projects Running</h1>
         {items.map(item => (
