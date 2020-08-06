@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   updateProject = item => {
     axios
-      .put(`http://localhost:8000/api/dates/${item.id}/`, item)
+      .put(`/api/dates/${item.id}/`, item)
       .then(res => {
         this.setState({ items: res.data });
         this.props.history.push("/");

@@ -104,7 +104,7 @@ export default class NewProject extends Component {
         onSubmit={async (values, actions) => {
           await axios({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/dates/",
+            url: "/api/dates/",
             data: values
           })
             .then(response => {

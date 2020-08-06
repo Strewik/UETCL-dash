@@ -33,9 +33,9 @@ class DisplayData extends React.Component {
 
   deleteProject(id) {
     axios
-      .delete(`http://127.0.0.1:8000/api/dates/${id}/`)
+      .delete(`/api/dates/${id}/`)
       .then(() => {
-        return axios.get(`http://127.0.0.1:8000/api/dates/`);
+        return axios.get(`/api/dates/`);
       })
       .then(res => {
         const items = res.data;
@@ -234,7 +234,7 @@ class DisplayData extends React.Component {
                       <h4>Insurance</h4>
                       <div>
                         <p>
-                          <strong>Start Date:</strong>{" "}
+                          <strong>Start Date:</strong>
                           {dateFormat(item.insurestart, "fullDate")}
                         </p>
                         <p>

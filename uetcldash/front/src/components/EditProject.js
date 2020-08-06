@@ -85,7 +85,7 @@ export default class EditProject extends Component {
   }
   componentDidMount = () => {
     axios
-      .get(`http://localhost:8000/api/dates/${this.props.match.params.id}/`)
+      .get(`/api/dates/${this.props.match.params.id}/`)
       .then(res => {
         this.setState({ item: res.data });
       })
@@ -120,7 +120,7 @@ export default class EditProject extends Component {
         onSubmit={async (values, actions) => {
           await axios({
             method: "PUT",
-            url: `http://127.0.0.1:8000/api/dates/${this.props.match.params.id}/`,
+            url: `/api/dates/${this.props.match.params.id}/`,
             data: values
           })
             .then(response => {
