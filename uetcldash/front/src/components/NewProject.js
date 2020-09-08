@@ -78,11 +78,16 @@ const initialValues = {
   comment: ""
 };
 
-export default class NewProject extends Component {
+class NewProject extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-  }
+  };
+
+  // onChange = e => this.setState({[e.target.name]:e.target.value});
+
+  // onSubmit
+
 
   render() {
     const { history } = this.props;
@@ -139,7 +144,7 @@ export default class NewProject extends Component {
                   <h1>Add Project Form</h1>
                 </div>
                 <div>
-                  <Input name="project" label="Project name" required />
+                  <Input name="projectname" label="Project name" required />
                   <div style={{ display: "flex" }}>
                     <Box
                       boxShadow={5}
@@ -388,3 +393,5 @@ export default class NewProject extends Component {
     );
   }
 }
+export default NewProject;
+// export default  connect(null, {addProject})(NewProject);

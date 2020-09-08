@@ -3,16 +3,24 @@ from rest_framework import viewsets, permissions
 from .serializers import *
 
 
-#Dates Viewset
+# Dates Viewset
 class DatesViewSet(viewsets.ModelViewSet):
-    queryset = Dates.objects.all()
+    # queryset = Dates.objects.all()
     permission_class = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
+        # permissions.AllowAny
     ]
+
     serializer_class = DatesSerializer
 
+    def get_queryset(self):
+        return self.request.user.dates.all()
 
-#Project Viewset
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+# Project Viewset
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     permission_class = [

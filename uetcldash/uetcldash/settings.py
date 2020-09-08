@@ -41,7 +41,14 @@ INSTALLED_APPS = [
     'front',
     'rest_framework',
     'corsheaders',
+    'knox',
+    'accounts',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':
+    ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,7 +88,6 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
-
 
 
 ROOT_URLCONF = 'uetcldash.urls'
