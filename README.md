@@ -12,8 +12,8 @@ This App  allows project managers track the schedule of their projects with the 
 
 ##  Reproducing the App
 * This is a django project with two apps, dates and front.
-* Fork the repo at https://github.com/Irenyak1/uetcldash
-* git clone https://github.com/your-username/uetcldash.git
+* Fork the repo at https://github.com/Strewik/UETCL-dash
+* git clone https://github.com/your-username/UETCL-dash
 * In the main project folder set up a virtual environment (venv) e.g
 'python3 -m venv venv'
 * Activate the virtual environment
