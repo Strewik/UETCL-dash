@@ -15,58 +15,50 @@ export class Headers extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-        <span className="navbar-text mr-3">
+        <span className="navbar-text mr-3 text-light">
           <strong>{user ? `Welcome ${user.username}` : ""}</strong>
         </span>
+        <li className="nav-item">
+          <Link to="/newproject" className="nav-link text-light">
+            <strong> Add Project</strong>
+          </Link>
+        </li>
         <li className="nav-item">
           <button
             onClick={this.props.logout}
             className="nav-link btn btn-info
                 btn-sm text-light"
           >
-            Logout
+            <strong>Logout</strong>
           </button>
         </li>
       </ul>
     );
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li className="nav-item">
-          <Link to="/register" className="nav-link">
-            Register
+      <div className="navbar-nav ml-auto mt-2 mt-lg-0">
+        <span className="nav-item">
+          <Link to="/register" className="nav-link text-light">
+            <strong>Register</strong>
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login" className="nav-link">
-            Login
+        </span>
+        <br />
+        <span className="nav-item">
+          <Link to="/" className="nav-link text-light">
+            <strong>Login</strong>
           </Link>
-        </li>
-      </ul>
+        </span>
+      </div>
     );
     return (
       <nav
-        className="navbar navbar-expand-sm
-            navbar-light bg-light"
+      className="navbar navbar-expand-sm
+            navbar-light"
       >
         <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="#">
-              New Project
-            </a>
+            {isAuthenticated ? authLinks : guestLinks}
           </div>
-          {isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
     );

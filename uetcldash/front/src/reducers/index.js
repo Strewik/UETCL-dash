@@ -5,8 +5,8 @@ import messages from "./messages";
 import projects from "./projects";
 
 export default combineReducers({
-    auth,
-    errors,
-    messages,
-    projects
+  projects,
+  auth,
+  errors,
+  messages
 });

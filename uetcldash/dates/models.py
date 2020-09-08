@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 
 class Dates(models.Model):
     projectname = models.CharField(blank=True, max_length=50)
-    # owner = models.ForeignKey(User, related_name='dates', on_delete=models.CASCADE, null=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, related_name='dates', on_delete=models.CASCADE, null=True)
     rapstart = models.CharField(blank=True, max_length=50)
     rapend = models.CharField(blank=True, max_length=50)
     pdpstart = models.CharField(blank=True, max_length=50)

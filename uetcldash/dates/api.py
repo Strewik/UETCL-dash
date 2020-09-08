@@ -5,19 +5,18 @@ from .serializers import *
 
 # Dates Viewset
 class DatesViewSet(viewsets.ModelViewSet):
-    # queryset = Dates.objects.all()
+    queryset = Dates.objects.all()
     permission_class = [
-        permissions.IsAuthenticated
-        # permissions.AllowAny
-    ]
+        permissions.IsAuthenticated,
+     ]
 
     serializer_class = DatesSerializer
 
-    def get_queryset(self):
-        return self.request.user.dates.all()
+    # def get_queryset(self):
+    #     return self.request.user.dates.all()
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(owner=self.request.user)
 
 
 # Project Viewset

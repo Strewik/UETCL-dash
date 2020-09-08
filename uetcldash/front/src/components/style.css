@@ -1,63 +1,54 @@
 * {
-    box-sizing: border-box;
-  }
-   
-  .App {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background-image: url("../images/lines19.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% ;
-  }
-  
-  .App > h1 {
-    margin-bottom: 5px;
-   
-  }
-  
-  .App > h2 {
-    opacity: 0.7;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  .addButton{
-    padding-top: 20px;
-  }
-  
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .project {
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    width: 22%;
-    color: #333;
-    flex-basis: width;
-    background-color:#fff;
-  }
-  
-  .project h3 {
-    margin-bottom: 5px;
-    font-size: 1rem;
-    opacity: 0.7;
-  }
-  
-  .project h2 {
-    margin-top: 5px;
-    margin-bottom: 30px;
-    font-size: 1.5rem;
-  }
-  
-  .details {
-    text-align: left;
-  }
-
-  .butt{
-    justify-content: right;
-    justify-items: right;
-    text-align: right;
-  }
+  box-sizing: border-box;
+}
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-image: url(../images/lines19.jpg); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.App > h1 {
+  margin-bottom: 5px;
+ 
+}
+.addButton{
+  padding-top: 20px;
+}
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  width: "100%";
+}
+.project {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: 22%;
+  color: #333;
+  flex-basis: width;
+  background-color:#fff;
+}
+.project h3 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+.project h2 {
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+.details {
+  text-align: left;
+}
+.butt{
+  margin-top: 1%;
+  justify-content: right;
+  justify-items: right;
+  text-align: right;
+}
+.heading{
+  padding-top:20px;
+}
